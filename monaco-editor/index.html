@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link
+      rel="stylesheet"
+      data-name="vs/editor/editor.main"
+      href="../node_modules_res/editor.main.css"
+    />
+  </head>
+  <body>
+    <h2>Monaco Editor Sync Loading Sample</h2>
+    <div
+      id="container"
+      style="width: 800px; height: 600px; border: 1px solid grey;"
+    ></div>
+
+    <script>
+      var require = {
+        paths: { vs: "../node_modules_res/monaco-editor/min/vs" },
+      };
+    </script>
+    <script src="../node_modules_res/loader.js"></script>
+    <script src="../node_modules_res/editor.main.nls.js"></script>
+    <script src="../node_modules_res/editor.main.js"></script>
+
+    <script>
+      fetch("./assects/react-dom.development.js")
+        .then((res) => res.json())
+        .then((value) => {
+          var editor = monaco.editor.create(
+            document.getElementById("container"),
+            { value, language: "javascript" }
+          );
+        });
+    </script>
+  </body>
+</html>
