@@ -4,7 +4,14 @@
   "description": "Collection of good examples",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build-index && npm run build-json && npm run build-css && npm run build-html && npm run build-ts && npm run build-worker",
+    "build-index": "parcel build src/index.html --out-dir ./docs --no-source-maps",
+    "build-json": "parcel build node_modules/monaco-editor/esm/vs/language/json/json.worker.js --no-source-maps",
+    "build-css": "parcel build node_modules/monaco-editor/esm/vs/language/css/css.worker.js --no-source-maps",
+    "build-html": "parcel build node_modules/monaco-editor/esm/vs/language/html/html.worker.js --no-source-maps",
+    "build-ts": "parcel build node_modules/monaco-editor/esm/vs/language/typescript/ts.worker.js --no-source-maps",
+    "build-worker": "parcel build node_modules/monaco-editor/esm/vs/editor/editor.worker.js --no-source-maps"
   },
   "repository": {
     "type": "git",
@@ -18,5 +25,8 @@
   "homepage": "https://github.com/lucy-loo/good-examples#readme",
   "dependencies": {
     "monaco-editor": "^0.20.0"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10"
   }
 }
